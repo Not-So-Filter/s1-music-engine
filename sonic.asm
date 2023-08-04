@@ -1398,7 +1398,7 @@ LevelSelect:
 		bsr.w	RunPLC
 		tst.l	(v_plc_buffer).w
 		bne.s	LevelSelect
-		andi.b	#btnB+btnC+btnStart,(v_jpadpress1).w ; is B, C, or Start pressed?
+		andi.b	#btnC+btnStart,(v_jpadpress1).w ; is C or Start pressed?
 		beq.s	LevelSelect	; if not, branch
 		move.w	(v_levselsound).w,d0
 
@@ -1418,6 +1418,7 @@ LevSel_NoMove:
 LevSelControls:
 		move.w	#$B,(v_levseldelay).w ; reset time delay
 		move.b	(v_jpadpress1).w,d1
+		move.b	(v_jpadhold1).w,d2
 ;		andi.b	#btnR+btnL,d1	; is left/right	pressed?
 		beq.s	LevSel_NoMove	; if not, branch
 		move.w	(v_levselsound).w,d0
@@ -1431,9 +1432,15 @@ LevSel_Right:
 		addq.w	#1,d0		; add 1	to sound test
 
 LevSel_ButtonA:
+		moveq	#$10,d3
 		btst	#bitA,d1	; is A pressed?
+		beq.s	LevSel_ButtonB	; if not, branch
+		add.w	d3,d0		; add $10	to sound test
+
+LevSel_ButtonB:
+		btst	#bitB,d1	; is B pressed?
 		beq.s	LevSel_Refresh2	; if not, branch
-		addi.w	#$10,d0		; add $10	to sound test
+		sub.w	d3,d0		; subtract $10	from sound test
 
 LevSel_Refresh2:
 		move.w	d0,(v_levselsound).w ; set sound test number
