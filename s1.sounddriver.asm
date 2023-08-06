@@ -2,24 +2,31 @@
 ; Modified SMPS 68k Type 1b sound driver
 ; ---------------------------------------------------------------------------
 
-SonicDriverVer:	= 3
+; Set this to 1 to enable Sonic 1 Sound Driver equivalents.
+; Set this to 2 to enable Sonic 2 Sound Driver equivalents.
+; Set this to 3 to enable Sonic 3 Alone Sound Driver equivalents.
+; Set this to 4 to enable Sonic 3 & Knuckles Sound Driver equivalents.
+; Set this to 5 to enable Sonic 3D Blast Sound Driver equivalents.
+; Set this to 6 to enable all Sound Driver equivalents.
+SonicDriverVer:	= 6
 
+; Set this to 1 to enable universal voice banks.
 SMPS_EnableUniversalVoiceBank: = 1
 
-; Changing this to 2 or under will enable the default PSG Frequency Table.
-; Changing this to 3 or over will enable the extended PSG Frequency Table.
+; Set this to 2 or under to enable the default PSG Frequency Table.
+; Set this to 3 or over to enable the extended PSG Frequency Table.
 SMPS_PSG_Freq_Table: = 3
 
-; Changing this to 1 or under will enable the S1 tempo wait routine.
-; Changing this to 2 will enable the S2 tempo wait routine.
-; Changing this to 3 or over will enable the S3K/Ristar/Treasure tempo wait routine.
+; Set this to 1 or under to enable the S1 tempo wait routine.
+; Set this to 2 to enable the S2 tempo wait routine.
+; Set this to 3 or over to enable the S3K/Ristar/Treasure tempo wait routine.
 SMPS_Tempo_Wait: = 3
 
 ; ---------------------------------------------------------------------------
 ; PSG instruments used in music
 ; ---------------------------------------------------------------------------
 PSG_Index:
-	if SonicDriverVer>2
+	if SonicDriverVer>4
 		dc.l PSG1
                 dc.l PSG2
                 dc.l PSG3
@@ -169,9 +176,6 @@ PSG9:		incbin	"sound/s1psg/psg9.bin"
 ; ---------------------------------------------------------------------------
 ; New tempos for songs during speed shoes
 ; ---------------------------------------------------------------------------
-; DANGER! several songs will use the first few bytes of MusicIndex as their main
-; tempos while speed shoes are active. If you don't want that, you should add
-; their "correct" sped-up main tempos to the list.
 ; byte_71A94:
 SpeedUpIndex:
 	if SMPS_Tempo_Wait>2
@@ -183,17 +187,17 @@ SpeedUpIndex:
 		dc.b $20	; SBZ
 		dc.b $01	; Invincibility
 		dc.b $33	; Extra Life
-		;dc.b ?		; Special Stage
-		;dc.b ?		; Title Screen
-		;dc.b ?		; Ending
-		;dc.b ?		; Boss
-		;dc.b ?		; FZ
-		;dc.b ?		; Sonic Got Through
-		;dc.b ?		; Game Over
-		;dc.b ?		; Continue Screen
-		;dc.b ?		; Credits
-		;dc.b ?		; Drowning
-		;dc.b ?		; Get Emerald
+		dc.b $20	; Special Stage
+		dc.b $33	; Title Screen
+		dc.b $33	; Ending
+		dc.b $40	; Boss
+		dc.b $2B	; FZ
+		dc.b $55	; Sonic Got Through
+		dc.b $0D	; Game Over
+		dc.b $25	; Continue Screen
+		dc.b $05	; Credits
+		dc.b $80	; Drowning
+		dc.b $2B	; Get Emerald
 		even
 	else
 		dc.b $07	; GHZ
@@ -204,17 +208,17 @@ SpeedUpIndex:
 		dc.b $08	; SBZ
 		dc.b $FF	; Invincibility
 		dc.b $05	; Extra Life
-		;dc.b ?		; Special Stage
-		;dc.b ?		; Title Screen
-		;dc.b ?		; Ending
-		;dc.b ?		; Boss
-		;dc.b ?		; FZ
-		;dc.b ?		; Sonic Got Through
-		;dc.b ?		; Game Over
-		;dc.b ?		; Continue Screen
-		;dc.b ?		; Credits
-		;dc.b ?		; Drowning
-		;dc.b ?		; Get Emerald
+		dc.b $08	; Special Stage
+		dc.b $05	; Title Screen
+		dc.b $05	; Ending
+		dc.b $04	; Boss
+		dc.b $06	; FZ
+		dc.b $03	; Sonic Got Through
+		dc.b $13	; Game Over
+		dc.b $07	; Continue Screen
+		dc.b $33	; Credits
+		dc.b $02	; Drowning
+		dc.b $06	; Get Emerald
 		even
 	endc
 
@@ -338,9 +342,9 @@ UpdateMusic:
 
 .exit:
 		addq.b	#1,f_palupdatecount(a6)
-                lea	(ym2612_a0).l,a0
+		lea	(ym2612_a0).l,a0
 .loopDAC:
-		tst.b	(a0)		; Is FM busy?
+		tst.b	(a0)
 		bmi.s	.loopDAC	; Loop if so
 		move.b	#$2A,(a0)
 		startZ80
@@ -883,11 +887,13 @@ Sound_PlayBGM:
 		movea.l	(a4,d7.w),a4		; a4 now points to (uncompressed) song data
 		moveq	#0,d0
 		move.w	(a4),d0			; load voice pointer
+	if SMPS_EnableUniversalVoiceBank
 		bne.s	.notUVB
 		move.l	#UniVoiceBank,d0
 		bra.s	.got_voice_pointer
 
 .notUVB:
+	endc
 		add.l	a4,d0			; It is a relative pointer
 
 .got_voice_pointer:
@@ -900,7 +906,6 @@ Sound_PlayBGM:
 ; loc_72068:
 .nospeedshoes:
 		move.b	d0,v_main_tempo(a6)
-		move.b	d0,v_main_tempo_timeout(a6)
 		moveq	#0,d1
 		movea.l	a4,a3
 		addq.w	#6,a4			; Point past header

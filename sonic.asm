@@ -1405,22 +1405,13 @@ LevelSelect:
 LevSel_PlaySnd:
 		bsr.w	PlaySound
 		bra.s	LevelSelect
-; ---------------------------------------------------------------------------
-; Subroutine to	change what you're selecting in the level select
-; ---------------------------------------------------------------------------
-
-LevSel_NoMove:
-		rts
 
 ; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 LevSelControls:
-		move.w	#$B,(v_levseldelay).w ; reset time delay
 		move.b	(v_jpadpress1).w,d1
 		move.b	(v_jpadhold1).w,d2
-;		andi.b	#btnR+btnL,d1	; is left/right	pressed?
-		beq.s	LevSel_NoMove	; if not, branch
 		move.w	(v_levselsound).w,d0
 		btst	#bitL,d1	; is left pressed?
 		beq.s	LevSel_Right	; if not, branch
@@ -1432,15 +1423,19 @@ LevSel_Right:
 		addq.w	#1,d0		; add 1	to sound test
 
 LevSel_ButtonA:
-		moveq	#$10,d3
-		btst	#bitA,d1	; is A pressed?
-		beq.s	LevSel_ButtonB	; if not, branch
-		add.w	d3,d0		; add $10	to sound test
+		btst	#bitA,d2	; is A held?
+		bne.s	LevSel_HeldLeft	; if yes, branch
+		bra.s	LevSel_Refresh2
 
-LevSel_ButtonB:
-		btst	#bitB,d1	; is B pressed?
+LevSel_HeldLeft:
+                btst	#bitL,d2	; is left held?
+		beq.s	LevSel_HeldRight	; if not, branch
+		subq.w	#1,d0		; subtract 1 from sound	test
+
+LevSel_HeldRight:
+		btst	#bitR,d2	; is right held?
 		beq.s	LevSel_Refresh2	; if not, branch
-		sub.w	d3,d0		; subtract $10	from sound test
+		addq.w	#1,d0		; add 1	to sound test
 
 LevSel_Refresh2:
 		move.w	d0,(v_levselsound).w ; set sound test number

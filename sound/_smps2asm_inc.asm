@@ -138,20 +138,6 @@ nMaxPSG1	=	nBb6
 nMaxPSG2	=	nB6
 ; ---------------------------------------------------------------------------------------------
 ; PSG Flutter =ates
-fTone_00	=	$00
-fTone_01	=	$01
-fTone_02	=	$02
-fTone_03	=	$03
-fTone_04	=	$04
-fTone_05	=	$05
-fTone_06	=	$06
-fTone_07	=	$07
-fTone_08	=	$08
-fTone_09	=	$09
-fTone_0A	=	$0A
-fTone_0B	=	$0B
-fTone_0C	=	$0C
-fTone_0D	=	$0D
 sTone_01	=	$01
 sTone_02	=	$02
 sTone_03	=	$03
@@ -191,6 +177,33 @@ sTone_24	=	$24
 sTone_25	=	$25
 sTone_26	=	$26
 sTone_27	=	$27
+
+fTone_00	=	$00
+	if SonicDriverVer>2
+fTone_01	=	sTone_0A
+fTone_02	=	$02
+fTone_03	=	sTone_0C
+fTone_04	=	$04
+fTone_05	=	sTone_26
+fTone_06	=	sTone_1C
+fTone_07	=	sTone_03
+fTone_08	=	sTone_1D
+fTone_09	=	sTone_08
+	else
+fTone_01	=	$01
+fTone_02	=	$02
+fTone_03	=	$03
+fTone_04	=	$04
+fTone_05	=	$05
+fTone_06	=	$06
+fTone_07	=	$07
+fTone_08	=	$08
+fTone_09	=	$09
+	endc
+fTone_0A	=	$0A
+fTone_0B	=	$0B
+fTone_0C	=	$0C
+fTone_0D	=	$0D
 ; ---------------------------------------------------------------------------------------------
 ; DAC =ates
 ; ---------------------------------------------------------------------------------------------
