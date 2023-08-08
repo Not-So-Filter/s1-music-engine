@@ -189,6 +189,9 @@ fTone_06	=	sTone_1C
 fTone_07	=	sTone_03
 fTone_08	=	sTone_1D
 fTone_09	=	sTone_08
+fTone_0A	=	sTone_03
+fTone_0B	=	sTone_26
+fTone_0C	=	$00
 	else
 fTone_01	=	$01
 fTone_02	=	$02
@@ -199,10 +202,10 @@ fTone_06	=	$06
 fTone_07	=	$07
 fTone_08	=	$08
 fTone_09	=	$09
-	endc
 fTone_0A	=	$0A
 fTone_0B	=	$0B
 fTone_0C	=	$0C
+	endc
 fTone_0D	=	$0D
 ; ---------------------------------------------------------------------------------------------
 ; DAC =ates
