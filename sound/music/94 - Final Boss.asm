@@ -9,7 +9,7 @@ End_Boss_Header:
 		smpsHeaderTempo     $01, $A9
 	endc
 	if SMPS_Tempo_Wait=1
-		smpsHeaderTempo     $01, $A9
+		smpsHeaderTempo     $01, $03
 	endc
 
 	smpsHeaderDAC       End_Boss_DAC

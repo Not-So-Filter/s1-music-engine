@@ -26,7 +26,20 @@ SMPS_Tempo_Wait: = 3
 ; PSG instruments used in music
 ; ---------------------------------------------------------------------------
 PSG_Index:
-	if SonicDriverVer>4
+	if SonicDriverVer=6
+		dc.l PSG1_S1
+		dc.l PSG2_S1
+		dc.l PSG3_S1
+		dc.l PSG4_S1
+		dc.l PSG5_S1
+		dc.l PSG6_S1
+		dc.l PSG7_S1
+		dc.l PSG8_S1
+		dc.l PSG9_S1
+		dc.l PSGA_S2
+		dc.l PSGB_S2
+		dc.l PSGC_S2
+		dc.l PSGD_S2
 		dc.l PSG1
                 dc.l PSG2
                 dc.l PSG3
@@ -40,20 +53,129 @@ PSG_Index:
                 dc.l PSGB
                 dc.l PSGC
 		dc.l PSGD
-                dc.l PSGE
-                dc.l PSGF
                 dc.l PSG10
                 dc.l PSG11
-                dc.l PSG12
-                dc.l PSG13
 		dc.l PSG14
-                dc.l PSG15
-                dc.l PSG16
-		dc.l PSG17
                 dc.l PSG18
-                dc.l PSG19
                 dc.l PSG1A
-                dc.l PSG1B
+                dc.l PSG1C
+		dc.l PSG1D
+                dc.l PSG1E
+                dc.l PSG1F
+                dc.l PSG20
+                dc.l PSG21
+                dc.l PSG22
+                dc.l PSG23
+		dc.l PSG24
+                dc.l PSG25
+                dc.l PSG26
+		dc.l PSG27
+PSG1_S1:	incbin	"sound/s1psg/psg1.bin"
+		even
+PSG2_S1:	incbin	"sound/s1psg/psg2.bin"
+		even
+PSG3_S1:	incbin	"sound/s1psg/psg3.bin"
+		even
+PSG4_S1:	incbin	"sound/s1psg/psg4.bin"
+		even
+PSG5_S1:	incbin	"sound/s1psg/psg5.bin"
+		even
+PSG6_S1:	incbin	"sound/s1psg/psg6.bin"
+		even
+PSG7_S1:	incbin	"sound/s1psg/psg7.bin"
+		even
+PSG8_S1:	incbin	"sound/s1psg/psg8.bin"
+		even
+PSG9_S1:	incbin	"sound/s1psg/psg9.bin"
+		even
+PSGA_S2:	incbin	"sound/s2psg/psga.bin"
+		even
+PSGB_S2:	incbin	"sound/s2psg/psgb.bin"
+		even
+PSGC_S2:	incbin	"sound/s2psg/psgc.bin"
+		even
+PSGD_S2:	incbin	"sound/s2psg/psgd.bin"
+		even
+PSG1:		incbin	"sound/s3kpsg/psg1.bin"
+		even
+PSG2:		incbin	"sound/s3kpsg/psg2.bin"
+		even
+PSG3:		incbin	"sound/s3kpsg/psg3.bin"
+		even
+PSG4:		incbin	"sound/s3kpsg/psg4.bin"
+		even
+PSG5:		incbin	"sound/s3kpsg/psg5.bin"
+		even
+PSG6:		incbin	"sound/s3kpsg/psg6.bin"
+		even
+PSG7:		incbin	"sound/s3kpsg/psg7.bin"
+		even
+PSG8:		incbin	"sound/s3kpsg/psg8.bin"
+		even
+PSG9:		incbin	"sound/s3kpsg/psg9.bin"
+		even
+PSGA:		incbin	"sound/s3kpsg/psgA.bin"
+		even
+PSGB:		incbin	"sound/s3kpsg/psgB.bin"
+		even
+PSGC:		incbin	"sound/s3kpsg/psgC.bin"
+		even
+PSGD:		incbin	"sound/s3kpsg/psgD.bin"
+		even
+PSG10:		incbin	"sound/s3kpsg/psg10.bin"
+		even
+PSG11:		incbin	"sound/s3kpsg/psg11.bin"
+		even
+PSG14:		incbin	"sound/s3kpsg/psg14.bin"
+		even
+PSG18:		incbin	"sound/s3kpsg/psg18.bin"
+		even
+PSG1A:		incbin	"sound/s3kpsg/psg1A.bin"
+		even
+PSG1C:		incbin	"sound/s3kpsg/psg1C.bin"
+		even
+PSG1D:		incbin	"sound/s3kpsg/psg1D.bin"
+		even
+PSG1E:		incbin	"sound/s3kpsg/psg1E.bin"
+		even
+PSG1F:		incbin	"sound/s3kpsg/psg1F.bin"
+		even
+PSG20:		incbin	"sound/s3kpsg/psg20.bin"
+		even
+PSG21:		incbin	"sound/s3kpsg/psg21.bin"
+		even
+PSG22:		incbin	"sound/s3kpsg/psg22.bin"
+		even
+PSG23:		incbin	"sound/s3kpsg/psg23.bin"
+		even
+PSG24:		incbin	"sound/s3kpsg/psg24.bin"
+		even
+PSG25:		incbin	"sound/s3kpsg/psg25.bin"
+		even
+PSG26:		incbin	"sound/s3kpsg/psg26.bin"
+		even
+PSG27:		incbin	"sound/s3kpsg/psg27.bin"
+		even
+	endc
+	if SonicDriverVer=5
+		dc.l PSG1
+                dc.l PSG2
+                dc.l PSG3
+		dc.l PSG4
+                dc.l PSG5
+                dc.l PSG6
+		dc.l PSG7
+                dc.l PSG8
+                dc.l PSG9
+                dc.l PSGA
+                dc.l PSGB
+                dc.l PSGC
+		dc.l PSGD
+                dc.l PSG10
+                dc.l PSG11
+		dc.l PSG14
+                dc.l PSG18
+                dc.l PSG1A
                 dc.l PSG1C
 		dc.l PSG1D
                 dc.l PSG1E
@@ -92,33 +214,15 @@ PSGC:		incbin	"sound/s3kpsg/psgC.bin"
 		even
 PSGD:		incbin	"sound/s3kpsg/psgD.bin"
 		even
-PSGE:		incbin	"sound/s3kpsg/psgE.bin"
-		even
-PSGF:		incbin	"sound/s3kpsg/psgF.bin"
-		even
 PSG10:		incbin	"sound/s3kpsg/psg10.bin"
 		even
 PSG11:		incbin	"sound/s3kpsg/psg11.bin"
 		even
-PSG12:		incbin	"sound/s3kpsg/psg12.bin"
-		even
-PSG13:		incbin	"sound/s3kpsg/psg13.bin"
-		even
 PSG14:		incbin	"sound/s3kpsg/psg14.bin"
-		even
-PSG15:		incbin	"sound/s3kpsg/psg15.bin"
-		even
-PSG16:		incbin	"sound/s3kpsg/psg16.bin"
-		even
-PSG17:		incbin	"sound/s3kpsg/psg17.bin"
 		even
 PSG18:		incbin	"sound/s3kpsg/psg18.bin"
 		even
-PSG19:		incbin	"sound/s3kpsg/psg19.bin"
-		even
 PSG1A:		incbin	"sound/s3kpsg/psg1A.bin"
-		even
-PSG1B:		incbin	"sound/s3kpsg/psg1B.bin"
 		even
 PSG1C:		incbin	"sound/s3kpsg/psg1C.bin"
 		even
@@ -144,7 +248,49 @@ PSG26:		incbin	"sound/s3kpsg/psg26.bin"
 		even
 PSG27:		incbin	"sound/s3kpsg/psg27.bin"
 		even
-	else
+	endc
+	if SonicDriverVer=2
+		dc.l PSG1
+                dc.l PSG2
+                dc.l PSG3
+		dc.l PSG4
+                dc.l PSG5
+                dc.l PSG6
+		dc.l PSG7
+                dc.l PSG8
+                dc.l PSG9
+                dc.l PSGA
+                dc.l PSGB
+                dc.l PSGC
+                dc.l PSGD
+PSG1:		incbin	"sound/s1psg/psg1.bin"
+		even
+PSG2:		incbin	"sound/s1psg/psg2.bin"
+		even
+PSG3:		incbin	"sound/s1psg/psg3.bin"
+		even
+PSG4:		incbin	"sound/s1psg/psg4.bin"
+		even
+PSG5:		incbin	"sound/s1psg/psg5.bin"
+		even
+PSG6:		incbin	"sound/s1psg/psg6.bin"
+		even
+PSG7:		incbin	"sound/s1psg/psg7.bin"
+		even
+PSG8:		incbin	"sound/s1psg/psg8.bin"
+		even
+PSG9:		incbin	"sound/s1psg/psg9.bin"
+		even
+PSGA:		incbin	"sound/s2psg/psga.bin"
+		even
+PSGB:		incbin	"sound/s2psg/psgb.bin"
+		even
+PSGC:		incbin	"sound/s2psg/psgc.bin"
+		even
+PSGD:		incbin	"sound/s2psg/psgd.bin"
+		even
+	endc
+	if SonicDriverVer=1
 		dc.l PSG1
                 dc.l PSG2
                 dc.l PSG3
@@ -261,6 +407,7 @@ ptr_mus9F:	dc.l Music9F
 ptr_musA0:	dc.l MusicA0
 ptr_musA1:	dc.l MusicA1
 ptr_musA2:	dc.l MusicA2
+ptr_musA3:	dc.l MusicA3
 ptr_musend
 ; ---------------------------------------------------------------------------
 ; Priority of sound. New music or SFX must have a priority higher than or equal
@@ -2628,9 +2775,11 @@ Music9F:	include	"sound/music/Boss2.asm"
 		even
 MusicA0:	include	"sound/music/82 - EHZ.asm"
 		even
-MusicA1:	include	"sound/music/85 - MTZ.asm"
+MusicA1:	include	"sound/music/8C - EHZ 2P.asm"
 		even
-MusicA2:	include	"sound/music/94 - Final Boss.asm"
+MusicA2:	include	"sound/music/85 - MTZ.asm"
+		even
+MusicA3:	include	"sound/music/94 - Final Boss.asm"
 		even
 
 ; ---------------------------------------------------------------------------

@@ -137,7 +137,49 @@ nMaxPSG		=	nBb6-psgdelta
 nMaxPSG1	=	nBb6
 nMaxPSG2	=	nB6
 ; ---------------------------------------------------------------------------------------------
-; PSG Flutter =ates
+; PSG Flutter rates
+	if SonicDriverVer=6
+sTone_01	=	$0E
+sTone_02	=	$0F
+sTone_03	=	$10
+sTone_04	=	$11
+sTone_05	=	$12
+sTone_06	=	$13
+sTone_07	=	$14	; SFX envelope, probably unused in S3K
+sTone_08	=	$15
+sTone_09	=	$16
+sTone_0A	=	$17
+sTone_0B	=	$18	; For FM volume envelopes
+sTone_0C	=	$19
+sTone_0D	=	$1A	; This time it matches 100%
+sTone_0E	=	sTone_01	; Duplicate of 01
+sTone_0F	=	sTone_02	; Duplicate of 02
+sTone_10	=	$1B
+sTone_11	=	$1C
+sTone_12	=	sTone_05	; Duplicate of 05
+sTone_13	=	sTone_06	; Duplicate of 06
+sTone_14	=	$1D	; SFX envelope, probably unused in S3K
+sTone_15	=	sTone_08	; Duplicate of 08
+sTone_16	=	sTone_09	; Duplicate of 09
+sTone_17	=	sTone_0A	; Duplicate of 0A
+sTone_18	=	$1E	; For FM volume envelopes
+sTone_19	=	sTone_0C	; Duplicate of 0C
+sTone_1A	=	$1F
+sTone_1B	=	sTone_0C	; Duplicate of 0C
+sTone_1C	=	$20
+sTone_1D	=	$21
+sTone_1E	=	$22
+sTone_1F	=	$23
+sTone_20	=	$24	; This time it matches 100%
+sTone_21	=	$25
+sTone_22	=	$26
+sTone_23	=	$27
+sTone_24	=	$28
+sTone_25	=	$29
+sTone_26	=	$2A
+sTone_27	=	$2B
+	endc
+	if SonicDriverVer=5
 sTone_01	=	$01
 sTone_02	=	$02
 sTone_03	=	$03
@@ -153,62 +195,78 @@ sTone_0C	=	$0C
 sTone_0D	=	$0D	; This time it matches 100%
 sTone_0E	=	sTone_01	; Duplicate of 01
 sTone_0F	=	sTone_02	; Duplicate of 02
-sTone_10	=	$10
-sTone_11	=	$11
+sTone_10	=	$0E
+sTone_11	=	$0F
 sTone_12	=	sTone_05	; Duplicate of 05
 sTone_13	=	sTone_06	; Duplicate of 06
-sTone_14	=	$14	; SFX envelope, probably unused in S3K
+sTone_14	=	$10	; SFX envelope, probably unused in S3K
 sTone_15	=	sTone_08	; Duplicate of 08
 sTone_16	=	sTone_09	; Duplicate of 09
 sTone_17	=	sTone_0A	; Duplicate of 0A
-sTone_18	=	$18	; For FM volume envelopes
+sTone_18	=	$11	; For FM volume envelopes
 sTone_19	=	sTone_0C	; Duplicate of 0C
-sTone_1A	=	$1A
+sTone_1A	=	$12
 sTone_1B	=	sTone_0C	; Duplicate of 0C
-sTone_1C	=	$1C
-sTone_1D	=	$1D
-sTone_1E	=	$1E
-sTone_1F	=	$1F
-sTone_20	=	$20	; This time it matches 100%
-sTone_21	=	$21
-sTone_22	=	$22
-sTone_23	=	$23
-sTone_24	=	$24
-sTone_25	=	$25
-sTone_26	=	$26
-sTone_27	=	$27
+sTone_1C	=	$13
+sTone_1D	=	$14
+sTone_1E	=	$15
+sTone_1F	=	$16
+sTone_20	=	$17	; This time it matches 100%
+sTone_21	=	$18
+sTone_22	=	$19
+sTone_23	=	$1A
+sTone_24	=	$1B
+sTone_25	=	$1C
+sTone_26	=	$1D
+sTone_27	=	$1E
+	endc
 
 fTone_00	=	$00
-	if SonicDriverVer>2
-fTone_01	=	sTone_0A
-fTone_02	=	$02
-fTone_03	=	sTone_0C
-fTone_04	=	$04
-fTone_05	=	sTone_26
-fTone_06	=	sTone_1C
-fTone_07	=	sTone_03
-fTone_08	=	sTone_1D
-fTone_09	=	sTone_08
-fTone_0A	=	sTone_03
-fTone_0B	=	sTone_26
-fTone_0C	=	$00
-	else
-fTone_01	=	$01
-fTone_02	=	$02
-fTone_03	=	$03
-fTone_04	=	$04
-fTone_05	=	$05
-fTone_06	=	$06
-fTone_07	=	$07
-fTone_08	=	$08
-fTone_09	=	$09
-fTone_0A	=	$0A
-fTone_0B	=	$0B
-fTone_0C	=	$0C
+	if SonicDriverVer<2
+		fTone_01:	=	$01
+		fTone_02:	=	$02
+		fTone_03:	=	$03
+		fTone_04:	=	$04
+		fTone_05:	=	$05
+		fTone_06:	=	$06
+		fTone_07:	=	$07
+		fTone_08:	=	$08
+		fTone_09:	=	$09
+		fTone_0A:	=	$0A
+		fTone_0B:	=	$0B
+		fTone_0C:	=	$0C
+	endc
+	if SonicDriverVer=5
+		fTone_01:	=	sTone_0A
+		fTone_02:	=	$02
+		fTone_03:	=	sTone_0C
+		fTone_04:	=	$04
+		fTone_05:	=	sTone_26
+		fTone_06:	=	sTone_1C
+		fTone_07:	=	sTone_03
+		fTone_08:	=	sTone_1D
+		fTone_09:	=	sTone_08
+		fTone_0A:	=	sTone_03
+		fTone_0B:	=	sTone_26
+		fTone_0C:	=	$00
+	endc
+	if SonicDriverVer=6
+		fTone_01:	=	$01
+		fTone_02:	=	$02
+		fTone_03:	=	$03
+		fTone_04:	=	$04
+		fTone_05:	=	$05
+		fTone_06:	=	$06
+		fTone_07:	=	$07
+		fTone_08:	=	$08
+		fTone_09:	=	$09
+		fTone_0A:	=	$0A
+		fTone_0B:	=	$0B
+		fTone_0C:	=	$0C
 	endc
 fTone_0D	=	$0D
 ; ---------------------------------------------------------------------------------------------
-; DAC =ates
+; DAC rates
 ; ---------------------------------------------------------------------------------------------
 dKick = $81
 dSnare = $82
@@ -292,11 +350,11 @@ cFM6				= $06	; Only in S3/S&K/S3D, overrides DAC
 ; ---------------------------------------------------------------------------------------------
 ; Conversion macros and functions
 
-;conv0To256  macro val 
+;conv0To256  macro val
 	;if val<$01
 		;dc.b (256-val+$FF)&$FF
-	;else	
-		;dc.b (256-val)&$FF	
+	;else
+		;dc.b (256-val)&$FF
 	;endc
 	;endm
 ; ---------------------------------------------------------------------------------------------
@@ -314,7 +372,7 @@ songStart set *
 smpsHeaderVoiceNull macro
 	if songStart<>*
 		fatal "Missing smpsHeaderStartSong or smpsHeaderStartSongConvert"
-	endif
+	endc
 	dc.w	$0000
 	endm
 
@@ -323,7 +381,7 @@ smpsHeaderVoiceNull macro
 smpsHeaderVoice macro loc
 	if songStart<>*
 		fatal "Missing smpsHeaderStartSong or smpsHeaderStartSongConvert"
-	endif
+	endc
 	dc.w	loc-songStart
 	endm
 
@@ -332,12 +390,12 @@ smpsHeaderVoice macro loc
 smpsHeaderVoiceUVB macro
 	if songStart<>*
 		fatal "Missing smpsHeaderStartSong"
-	endif
+	endc
 	if SonicDriverVer>=3
 		dc.w	0
 	else
 		fatal "Universal Voice Bank does not exist in Sonic 1 or Sonic 2 drivers"
-	endif
+	endc
 	endm
 
 ; Header macros for music (not for SFX)
@@ -362,10 +420,10 @@ smpsHeaderDAC macro loc,pitch,vol
 			dc.b	vol
 		else
 			dc.b	$00
-		endif
+		endc
 	else
 		dc.w	$00
-	endif
+	endc
 	endm
 
 ; Header - set up FM Channel
@@ -403,10 +461,10 @@ smpsHeaderSFXChannel macro chanid,loc,pitch,vol
 		dc.b	pitch
 	else
 		dc.b	(pitch+psgdelta)&$FF
-	endif
+	endc
 	else
 		dc.b	pitch
-	endif
+	endc
 	dc.b	vol
 	endm
 ; ---------------------------------------------------------------------------------------------
@@ -462,7 +520,7 @@ smpsNoteFill macro val
 	dc.b	$FA,val
 	else
 	dc.b	$E8,val
-	endif
+	endc
 	endm
 
 ; Add xx to channel pitch
