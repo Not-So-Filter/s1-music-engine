@@ -70,6 +70,7 @@ PSG_Index:
                 dc.l PSG25
                 dc.l PSG26
 		dc.l PSG27
+		dc.l PSG4_S3D
 		dc.l PSG28
 PSG1_S1:	incbin	"sound/s1psg/psg1.bin"
 		even
@@ -156,6 +157,8 @@ PSG25:		incbin	"sound/s3kpsg/psg25.bin"
 PSG26:		incbin	"sound/s3kpsg/psg26.bin"
 		even
 PSG27:		incbin	"sound/s3kpsg/psg27.bin"
+		even
+PSG4_S3D:	incbin	"sound/s3dpsg/psg4.bin"
 		even
 PSG28:		incbin	"sound/s3dpsg/psg28.bin"
 		even
@@ -411,6 +414,8 @@ ptr_musA0:	dc.l MusicA0
 ptr_musA1:	dc.l MusicA1
 ptr_musA2:	dc.l MusicA2
 ptr_musA3:	dc.l MusicA3
+ptr_musA4:	dc.l MusicA4
+ptr_musA5:	dc.l MusicA5
 ptr_musend
 ; ---------------------------------------------------------------------------
 ; Priority of sound. New music or SFX must have a priority higher than or equal
@@ -2752,37 +2757,41 @@ Music92:	include	"sound/music/Mus92 - Drowning.asm"
 		even
 Music93:	include	"sound/music/Mus93 - Get Emerald.asm"
 		even
-Music94:	include	"sound/music/AIZ1.asm"
+Music94:	include	"sound/music/S2/82 - EHZ.asm"
 		even
-Music95:	include	"sound/music/AIZ2.asm"
+Music95:	include	"sound/music/S2/8C - EHZ 2P.asm"
 		even
-Music96:	include	"sound/music/HCZ1.asm"
+Music96:	include	"sound/music/S2/85 - MTZ.asm"
 		even
-Music97:	include	"sound/music/HCZ2.asm"
+Music97:	include	"sound/music/S2/94 - Final Boss.asm"
 		even
-Music98:	include	"sound/music/07 Carnival Night 1.asm"
+Music98:	include	"sound/music/S3/AIZ1.asm"
 		even
-Music99:	include	"sound/music/08 Carnival Night 2.asm"
+Music99:	include	"sound/music/S3/AIZ2.asm"
 		even
-Music9A:	include	"sound/music/Final Boss.asm"
+Music9A:	include	"sound/music/S3/HCZ1.asm"
 		even
-Music9B:	include	"sound/music/GreenGZ1.asm"
+Music9B:	include	"sound/music/S3/HCZ2.asm"
 		even
-Music9C:	include	"sound/music/GreenGZ2.asm"
+Music9C:	include	"sound/music/1103/07 Carnival Night 1.asm"
 		even
-Music9D:	include	"sound/music/Menu.asm"
+Music9D:	include	"sound/music/1103/08 Carnival Night 2.asm"
 		even
-Music9E:	include	"sound/music/Boss1.asm"
+Music9E:	include	"sound/music/S3/Final Boss.asm"
 		even
-Music9F:	include	"sound/music/Boss2.asm"
+Music9F:	include	"sound/music/S3D/GreenGZ1.asm"
 		even
-MusicA0:	include	"sound/music/82 - EHZ.asm"
+MusicA0:	include	"sound/music/S3D/GreenGZ2.asm"
 		even
-MusicA1:	include	"sound/music/8C - EHZ 2P.asm"
+MusicA1:	include	"sound/music/S3D/DDZ1.asm"
 		even
-MusicA2:	include	"sound/music/85 - MTZ.asm"
+MusicA2:	include	"sound/music/S3D/DDZ2.asm"
 		even
-MusicA3:	include	"sound/music/94 - Final Boss.asm"
+MusicA3:	include	"sound/music/S3D/Menu.asm"
+		even
+MusicA4:	include	"sound/music/S3D/Boss1.asm"
+		even
+MusicA5:	include	"sound/music/S3D/Boss2.asm"
 		even
 
 ; ---------------------------------------------------------------------------

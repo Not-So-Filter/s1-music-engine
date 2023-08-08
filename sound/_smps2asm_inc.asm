@@ -178,6 +178,8 @@ sTone_24	=	$28
 sTone_25	=	$29
 sTone_26	=	$2A
 sTone_27	=	$2B
+sTone_04_S3D	=	$2C
+sTone_28	=	$2D
 	endc
 	if SonicDriverVer=5
 sTone_01	=	$01
