@@ -57,8 +57,8 @@ MegaPCM:
 
 	DAC_Entry	$17, kick, dpcm			; $81	- Kick
 	DAC_Entry	$04, snare, dpcm		; $82	- Snare
-	DAC_Entry	$1B+2, timpani, dpcm		; $83	- Timpani
-	dc.l	0,0					; $84	- <Free>
+	DAC_Entry	$06+2, claps2, dpcm		; $83	- Clap
+	DAC_Entry	$08+2, scratchs2, dpcm		; $84	- Scratch
 	dc.l	0,0					; $85	- <Free>
 	dc.l	0,0					; $86	- <Free>
 	dc.l	0,0					; $87	- <Free>
@@ -81,6 +81,18 @@ MegaPCM:
 	DAC_Entry	$04+3, muffledsnares3, dpcm	; $98	- Muffled Snare
 	DAC_Entry	$04+3, quickloosesnares3, dpcm	; $99	- Quick Loose Snare
 	DAC_Entry	$06+3, crashcymbals3, dpcm	; $9A	- Crash Cymbal
+	dc.l	0,0					; $9B	- <Free>
+	dc.l	0,0					; $9C	- <Free>
+	dc.l	0,0					; $9D	- <Free>
+	dc.l	0,0					; $9E	- <Free>
+	dc.l	0,0					; $9F	- <Free>
+	DAC_Entry	$02+2, toms2, dpcm		; $A0	- <Free>
+	DAC_Entry	$05+2, toms2, dpcm		; $A1	- <Free>
+	DAC_Entry	$08+2, toms2, dpcm		; $A2	- <Free>
+	dc.l	0,0					; $A3	- <Free>
+	dc.l	0,0					; $A4	- <Free>
+	dc.l	0,0					; $A5	- <Free>
+	dc.l	0,0					; $A6	- <Free>
 
 MegaPCM_End:
 
@@ -91,6 +103,9 @@ MegaPCM_End:
 	IncludeDAC	kick, dpcm
 	IncludeDAC	snare, dpcm
 	IncludeDAC	timpani, dpcm
+	IncludeDAC	claps2, dpcm
+	IncludeDAC	scratchs2, dpcm
+	IncludeDAC	toms2, dpcm
 	IncludeDAC	kicks3, dpcm
 	IncludeDAC	snares3, dpcm
 	IncludeDAC	claps3, dpcm

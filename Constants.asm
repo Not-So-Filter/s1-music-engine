@@ -277,10 +277,9 @@ spec__Last:	equ ((ptr_specend-SpecSoundIndex-4)/4)+spec__First
 
 flg__First:	equ spec__Last+1
 bgm_Fade:	equ ((ptr_flgE0-Sound_ExIndex)/4)+flg__First
-sfx_Sega:	equ ((ptr_flgE1-Sound_ExIndex)/4)+flg__First
-bgm_Speedup:	equ ((ptr_flgE2-Sound_ExIndex)/4)+flg__First
-bgm_Slowdown:	equ ((ptr_flgE3-Sound_ExIndex)/4)+flg__First
-bgm_Stop:	equ ((ptr_flgE4-Sound_ExIndex)/4)+flg__First
+bgm_Speedup:	equ ((ptr_flgE1-Sound_ExIndex)/4)+flg__First
+bgm_Slowdown:	equ ((ptr_flgE2-Sound_ExIndex)/4)+flg__First
+bgm_Stop:	equ ((ptr_flgE3-Sound_ExIndex)/4)+flg__First
 flg__Last:	equ ((ptr_flgend-Sound_ExIndex-4)/4)+flg__First
 
 ; Sonic frame IDs

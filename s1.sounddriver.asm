@@ -255,6 +255,12 @@ ptr_mus99:	dc.l Music99
 ptr_mus9A:	dc.l Music9A
 ptr_mus9B:	dc.l Music9B
 ptr_mus9C:	dc.l Music9C
+ptr_mus9D:	dc.l Music9D
+ptr_mus9E:	dc.l Music9E
+ptr_mus9F:	dc.l Music9F
+ptr_musA0:	dc.l MusicA0
+ptr_musA1:	dc.l MusicA1
+ptr_musA2:	dc.l MusicA2
 ptr_musend
 ; ---------------------------------------------------------------------------
 ; Priority of sound. New music or SFX must have a priority higher than or equal
@@ -293,8 +299,8 @@ SoundPriorities:
 
 ; sub_71B4C:
 UpdateMusic:
-		lea	(v_snddriver_ram).w,a6
-		stopZ80
+                lea	(v_snddriver_ram).w,a6
+                stopZ80
 		waitZ80
 		clr.b	f_voice_selector(a6)
 		tst.b	f_pausemusic(a6)
@@ -376,8 +382,7 @@ DACUpdateTrack:
 ; ===========================================================================
 ; loc_71C6E:
 .notcoord:
-		tst.b	d5			; Is it a sample?
-		bpl.s	.gotduration		; Branch if not (duration)
+		bpl.s	.gotduration		; Branch if is not a sample (duration)
 		move.b	d5,TrackSavedDAC(a5)	; Store new sample
 		move.b	(a4)+,d5		; Get another byte
 		bpl.s	.gotduration		; Branch if it is a duration
@@ -801,7 +806,7 @@ PlaySoundID:
 		move.b	v_sound_id(a6),d7
 		move.b	#$80,v_sound_id(a6)	; reset	music flag
 		cmpi.b	#bgm__Last,d7	; Is this music ($81-$9F)?
-		bls.w	Sound_PlayBGM		; Branch if yes
+		bls.s	Sound_PlayBGM		; Branch if yes
 		cmpi.b	#sfx__Last,d7		; Is this sfx ($A0-$CF)?
 		bls.w	Sound_PlaySFX		; Branch if yes
 		cmpi.b	#spec__Last,d7	; Is this special sfx ($D0-$DF)?
@@ -821,18 +826,10 @@ Sound_E0toE4:
 
 Sound_ExIndex:
 ptr_flgE0:	bra.w	FadeOutMusic		; $E0
-ptr_flgE1:	bra.w	PlaySegaSound		; $E1
-ptr_flgE2:	bra.w	SpeedUpMusic		; $E2
-ptr_flgE3:	bra.w	SlowDownMusic		; $E3
-ptr_flgE4:	bra.w	StopAllSound		; $E4
+ptr_flgE1:	bra.w	SpeedUpMusic		; $E1
+ptr_flgE2:	bra.w	SlowDownMusic		; $E2
+ptr_flgE3:	bra.w	StopAllSound		; $E3
 ptr_flgend
-; ===========================================================================
-; ---------------------------------------------------------------------------
-; Play "Say-gaa" PCM sound
-; ---------------------------------------------------------------------------
-; Sound_E1: PlaySega:
-PlaySegaSound:
-                bra.w	PSGSilenceAll	; stop PSG from freezing
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Play music track $81-$9F
@@ -1800,8 +1797,7 @@ PSGDoNext:
 ; ===========================================================================
 ; loc_72890:
 .gotnote:
-		tst.b	d5		; Is it a note?
-		bpl.s	.gotduration	; Branch if not
+		bpl.s	.gotduration	; Branch if it is not a note
 		bsr.s	PSGSetFreq
 		move.b	(a4)+,d5	; Get another byte
 		bpl.s	.gotduration	; Branch if it is a duration
@@ -2561,7 +2557,9 @@ cfOpF9:
 	endc
 
 		include "sound/_smps2asm_inc.asm"
+	if SMPS_EnableUniversalVoiceBank
 		include	"sound/FM Universal Voice Bank.asm"
+	endc
 
 ; ---------------------------------------------------------------------------
 ; Music data
@@ -2616,11 +2614,23 @@ Music98:	include	"sound/music/07 Carnival Night 1.asm"
 		even
 Music99:	include	"sound/music/08 Carnival Night 2.asm"
 		even
-Music9A:	include	"sound/music/GreenGZ1.asm"
+Music9A:	include	"sound/music/Final Boss.asm"
 		even
-Music9B:	include	"sound/music/GreenGZ2.asm"
+Music9B:	include	"sound/music/GreenGZ1.asm"
 		even
-Music9C:	include	"sound/music/Boss2.asm"
+Music9C:	include	"sound/music/GreenGZ2.asm"
+		even
+Music9D:	include	"sound/music/Menu.asm"
+		even
+Music9E:	include	"sound/music/Boss1.asm"
+		even
+Music9F:	include	"sound/music/Boss2.asm"
+		even
+MusicA0:	include	"sound/music/82 - EHZ.asm"
+		even
+MusicA1:	include	"sound/music/85 - MTZ.asm"
+		even
+MusicA2:	include	"sound/music/94 - Final Boss.asm"
 		even
 
 ; ---------------------------------------------------------------------------
