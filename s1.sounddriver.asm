@@ -70,6 +70,7 @@ PSG_Index:
                 dc.l PSG25
                 dc.l PSG26
 		dc.l PSG27
+		dc.l PSG28
 PSG1_S1:	incbin	"sound/s1psg/psg1.bin"
 		even
 PSG2_S1:	incbin	"sound/s1psg/psg2.bin"
@@ -155,6 +156,8 @@ PSG25:		incbin	"sound/s3kpsg/psg25.bin"
 PSG26:		incbin	"sound/s3kpsg/psg26.bin"
 		even
 PSG27:		incbin	"sound/s3kpsg/psg27.bin"
+		even
+PSG28:		incbin	"sound/s3dpsg/psg28.bin"
 		even
 	endc
 	if SonicDriverVer=5
