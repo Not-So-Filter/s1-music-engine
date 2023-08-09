@@ -2,7 +2,7 @@ EHZ_2p_Header:
 	smpsHeaderStartSong 2
 	smpsHeaderVoice     EHZ_2p_Voices
 	smpsHeaderChan      $06, $03
-	if SMPS_Tempo_Wait=3
+	if SMPS_Tempo_Wait=<3
 		smpsHeaderTempo     $01, $A5
 	endc
 	if SMPS_Tempo_Wait=2

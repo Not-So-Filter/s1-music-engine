@@ -194,13 +194,14 @@ PSG28:		incbin	"sound/s3dpsg/psg28.bin"
                 dc.l PSG25
                 dc.l PSG26
 		dc.l PSG27
+		dc.l PSG28
 PSG1:		incbin	"sound/s3kpsg/psg1.bin"
 		even
 PSG2:		incbin	"sound/s3kpsg/psg2.bin"
 		even
 PSG3:		incbin	"sound/s3kpsg/psg3.bin"
 		even
-PSG4:		incbin	"sound/s3kpsg/psg4.bin"
+PSG4:		incbin	"sound/s3dpsg/psg4.bin"
 		even
 PSG5:		incbin	"sound/s3kpsg/psg5.bin"
 		even
@@ -253,6 +254,8 @@ PSG25:		incbin	"sound/s3kpsg/psg25.bin"
 PSG26:		incbin	"sound/s3kpsg/psg26.bin"
 		even
 PSG27:		incbin	"sound/s3kpsg/psg27.bin"
+		even
+PSG28:		incbin	"sound/s3dpsg/psg28.bin"
 		even
 	endc
 	if SonicDriverVer=2
@@ -1708,24 +1711,23 @@ InitMusicPlayback:
 
 ; sub_7260C:
 TempoWait:
-	if SMPS_Tempo_Wait>2
-		move.b	v_main_tempo(a6),d0
-		add.b	d0,v_main_tempo_timeout(a6)
-		bcc.s	.skipdelay
-		lea	v_music_track_ram+TrackDurationTimeout(a6),a0	; note timeout
-		moveq	#((v_music_track_ram_end-v_music_track_ram)/TrackSz)-1,d1		; 1 DAC + 6 FM + 3 PSG tracks
-; loc_7261A:
-.tempoloop:
-		addq.b	#1,(a0)	; Delay note by 1 frame
-		lea	TrackSz(a0),a0	; Advance to next track
-		dbf	d1,.tempoloop
-
-.skipdelay:
-		rts
-	else
+	if SMPS_Tempo_Wait=1
 		subq.b	#1,v_main_tempo_timeout(a6)	; Has main tempo timer expired?
 		bne.s	.skipdelay
 		move.b	v_main_tempo(a6),v_main_tempo_timeout(a6)	; Reset main tempo timeout
+	endc
+
+	if SMPS_Tempo_Wait=2
+		subq.b	#1,v_main_tempo_timeout(a6)	; Has main tempo timer expired?
+		bne.s	.skipdelay
+		move.b	v_main_tempo(a6),v_main_tempo_timeout(a6)	; Reset main tempo timeout
+	endc
+
+	if SMPS_Tempo_Wait=3
+		move.b	v_main_tempo(a6),d0
+		add.b	d0,v_main_tempo_timeout(a6)
+		bcc.s	.skipdelay
+	endc
 		lea	v_music_track_ram+TrackDurationTimeout(a6),a0	; note timeout
 		moveq	#((v_music_track_ram_end-v_music_track_ram)/TrackSz)-1,d1		; 1 DAC + 6 FM + 3 PSG tracks
 ; loc_7261A:
@@ -1736,7 +1738,6 @@ TempoWait:
 
 .skipdelay:
 		rts
-	endc
 ; End of function TempoWait
 
 ; ===========================================================================
@@ -2224,6 +2225,8 @@ coordflagLookup:
 ; ===========================================================================
 		bra.w	cfOpF9			; $F9
 ; ===========================================================================
+		bra.w	cfNoteTimeoutS3K	; $FA
+; ===========================================================================
 ; loc_72ACC:
 cfPanningAMSFMS:
 		move.b	(a4)+,d1		; New AMS/FMS/panning value
@@ -2703,6 +2706,17 @@ cfOpF9:
 		moveq	#$FFFFFF8C,d0		; D1L/RR of Operator 4
 		moveq	#$F,d1		; Loaded with fixed value (max RR, 1TL)
 		bra.w	WriteFMI
+; ===========================================================================
+; cfNoteFillS3K:
+cfNoteTimeoutS3K:
+		moveq	#0,d0
+		moveq	#0,d1
+		move.b	(a4)+,d1				; Get parameter
+		move.b	TrackTempoDivider(a5),d0		; Get tempo divider for this track
+		mulu.w	d0,d1					; Multiply the parameter by tempo divider
+		move.b	d1,TrackNoteTimeout(a5)		; Note timeout
+		move.b	d1,TrackNoteTimeoutMaster(a5)	; Note timeout master
+		rts
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; SMPS2ASM - A collection of macros that make SMPS's bytecode human-readable.
