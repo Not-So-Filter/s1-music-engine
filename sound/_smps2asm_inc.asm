@@ -635,7 +635,7 @@ smpsModOff macro
 
 ; set Modulation
 smpsModChange macro val
-	dc.b	$F4,val
+	dc.b	$F0,val
 	endm	
 
 ; F5xx - PSG voice to xx

@@ -2831,7 +2831,7 @@ Music9C:	include	"sound/music/1103/07 Carnival Night 1.asm"
 		even
 Music9D:	include	"sound/music/1103/08 Carnival Night 2.asm"
 		even
-Music9E:	include	"sound/music/S3/Sonic 3 Miniboss.asm"
+Music9E:	include	"sound/music/S3/Miniboss (Sonic 3).asm"
 		even
 Music9F:	include	"sound/music/S3/Final Boss.asm"
 		even
