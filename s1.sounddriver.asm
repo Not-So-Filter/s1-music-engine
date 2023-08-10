@@ -458,6 +458,7 @@ ptr_musA2:	dc.l MusicA2
 ptr_musA3:	dc.l MusicA3
 ptr_musA4:	dc.l MusicA4
 ptr_musA5:	dc.l MusicA5
+ptr_musA6:	dc.l MusicA6
 ptr_musend
 ; ---------------------------------------------------------------------------
 ; Priority of sound. New music or SFX must have a priority higher than or equal
@@ -2830,21 +2831,23 @@ Music9C:	include	"sound/music/1103/07 Carnival Night 1.asm"
 		even
 Music9D:	include	"sound/music/1103/08 Carnival Night 2.asm"
 		even
-Music9E:	include	"sound/music/S3/Final Boss.asm"
+Music9E:	include	"sound/music/S3/Sonic 3 Miniboss.asm"
 		even
-Music9F:	include	"sound/music/S3D/GreenGZ1.asm"
+Music9F:	include	"sound/music/S3/Final Boss.asm"
 		even
-MusicA0:	include	"sound/music/S3D/GreenGZ2.asm"
+MusicA0:	include	"sound/music/S3D/GreenGZ1.asm"
 		even
-MusicA1:	include	"sound/music/S3D/DDZ1.asm"
+MusicA1:	include	"sound/music/S3D/GreenGZ2.asm"
 		even
-MusicA2:	include	"sound/music/S3D/DDZ2.asm"
+MusicA2:	include	"sound/music/S3D/DDZ1.asm"
 		even
-MusicA3:	include	"sound/music/S3D/Menu.asm"
+MusicA3:	include	"sound/music/S3D/DDZ2.asm"
 		even
-MusicA4:	include	"sound/music/S3D/Boss1.asm"
+MusicA4:	include	"sound/music/S3D/Menu.asm"
 		even
-MusicA5:	include	"sound/music/S3D/Boss2.asm"
+MusicA5:	include	"sound/music/S3D/Boss1.asm"
+		even
+MusicA6:	include	"sound/music/S3D/Boss2.asm"
 		even
 
 ; ---------------------------------------------------------------------------
