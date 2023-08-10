@@ -66,34 +66,81 @@ MegaPCM:
 	DAC_Entry	$15+2, timpani, dpcm		; $89	- Mid-Timpani
 	DAC_Entry	$1B+2, timpani, dpcm		; $8A	- Mid-Low-Timpani
 	DAC_Entry	$1D+2, timpani, dpcm		; $8B	- Low-Timpani
-	DAC_Entry	$04+3, kicks3, dpcm		; $8C	- Kick
-	DAC_Entry	$04+3, snares3, dpcm		; $8D	- Snare
-	DAC_Entry	$08+3, claps3, dpcm		; $8E	- Clap
-	DAC_Entry	$0E+3, toms3, dpcm		; $8F	- High Tom
-	DAC_Entry	$14+3, toms3, dpcm		; $90	- Mid Tom
-	DAC_Entry	$1A+3, toms3, dpcm		; $91	- Low Tom
-	DAC_Entry	$20+3, toms3, dpcm		; $92	- Floor Tom
-	DAC_Entry	$0B+3, highermetalhits3, dpcm	; $93	- Higher Metal Hit
-	DAC_Entry	$08+3, highmetalhits3, dpcm	; $94	- High Metal Hit
-	DAC_Entry	$11+3, highermetalhits3, dpcm	; $95	- Mid Metal Hit
-	DAC_Entry	$14+3, metalhits3, dpcm		; $96	- Metal Hit
-	DAC_Entry	$1B+3, metalhits3, dpcm		; $97	- Low Metal Hit
-	DAC_Entry	$04+3, muffledsnares3, dpcm	; $98	- Muffled Snare
-	DAC_Entry	$04+3, quickloosesnares3, dpcm	; $99	- Quick Loose Snare
-	DAC_Entry	$06+3, crashcymbals3, dpcm	; $9A	- Crash Cymbal
-	dc.l	0,0					; $9B	- <Free>
-	dc.l	0,0					; $9C	- <Free>
-	dc.l	0,0					; $9D	- <Free>
-	dc.l	0,0					; $9E	- <Free>
-	dc.l	0,0					; $9F	- <Free>
-	DAC_Entry	$02+2, toms2, dpcm		; $A0	- <Free>
-	DAC_Entry	$05+2, toms2, dpcm		; $A1	- <Free>
-	DAC_Entry	$08+2, toms2, dpcm		; $A2	- <Free>
-	dc.l	0,0					; $A3	- <Free>
-	dc.l	0,0					; $A4	- <Free>
-	dc.l	0,0					; $A5	- <Free>
-	dc.l	0,0					; $A6	- <Free>
 
+; ---------------------------------------------------------------
+; Sonic 3K/3D Sample definitions
+; ---------------------------------------------------------------
+
+    DAC_Entry   $04+2, D81,     dpcm ; $8C - Kick
+    DAC_Entry   $0E+2, D8285,   dpcm ; $8D - High-Tom
+    DAC_Entry   $14+2, D8285,   dpcm ; $8E - Mid-Tom
+    DAC_Entry   $1A+2, D8285,   dpcm ; $8F - Low-Tom
+    DAC_Entry   $20+2, D8285,   dpcm ; $90 - Floor Tom
+    DAC_Entry   $04+2, D86,     dpcm ; $91 - Kick
+    DAC_Entry   $04+2, D87,     dpcm ; $92 - Kick + Snare
+    DAC_Entry   $06+2, D88,     dpcm ; $93 - Crash Cymbal
+    DAC_Entry   $0A+2, D89,     dpcm ; $94 - Ride Cymbal
+    DAC_Entry   $14+2, D8A8B,   dpcm ; $95 - Low Metal Hit
+    DAC_Entry   $1B+2, D8A8B,   dpcm ; $96 - Metal Hit
+    DAC_Entry   $08+2, D8C,     dpcm ; $97 - High Metal Hit
+    DAC_Entry   $0B+2, D8D8E,   dpcm ; $98 - Higher Metal Hit
+    DAC_Entry   $11+2, D8D8E,   dpcm ; $99 - Low Metal Hit
+    DAC_Entry   $08+2, D8F,     dpcm ; $9A - Clap
+    DAC_Entry   $03+2, D9093,   dpcm ; $9B - Electric High-Tom
+    DAC_Entry   $07+2, D9093,   dpcm ; $9C - Electric Mid-Tom
+    DAC_Entry   $0A+2, D9093,   dpcm ; $9D - Electric Low-Tom
+    DAC_Entry   $0E+2, D9093,   dpcm ; $9E - Electric Floor Tom
+    DAC_Entry   $06+2, D9497,   dpcm ; $9F - Tight Snare
+    DAC_Entry   $0A+2, D9497,   dpcm ; $A0 - Mid-pitch snare
+    DAC_Entry   $0D+2, D9497,   dpcm ; $A1 - Loose Snare
+    DAC_Entry   $12+2, D9497,   dpcm ; $A2 - Looser Snare
+    DAC_Entry   $0B+2, D989A,   dpcm ; $A3 - Hi-Timpani
+    DAC_Entry   $13+2, D989A,   dpcm ; $A4 - Low-Timpani
+    DAC_Entry   $16+2, D989A,   dpcm ; $A5 - Mid-Timpani
+    DAC_Entry   $0C+2, D9B,     dpcm ; $A6 - Quick Loose Snare
+    DAC_Entry   $0A+2, D9C,     dpcm ; $A7 - Click
+    DAC_Entry   $18+2, D9D,     dpcm ; $A8 - Power Kick
+    DAC_Entry   $18+2, D9E,     dpcm ; $A9 - Quick Glass Crash
+    DAC_Entry   $0C+2, D9F,     dpcm ; $AA - Glass Crash with Snare
+    DAC_Entry   $0C+2, DA0,     dpcm ; $AB - Glass Crash
+    DAC_Entry   $0A+2, DA1,     dpcm ; $AC - Glass Crash with Kick
+    DAC_Entry   $0A+2, DA2,     dpcm ; $AD - Quiet Glass Crash
+    DAC_Entry   $18+2, DA3,     dpcm ; $AE - Odd Snare with Kick
+    DAC_Entry   $18+2, DA4,     dpcm ; $AF - Kick with extra bass
+    DAC_Entry   $0C+2, DA5,     dpcm ; $B0 - "Come on!"
+    DAC_Entry   $09+2, DA6,     dpcm ; $B1 - Dance Snare
+    DAC_Entry   $18+2, DA7,     dpcm ; $B2 - Loose Kick
+    DAC_Entry   $18+2, DA8,     dpcm ; $B3 - Moderately Loose Kick
+    DAC_Entry   $0C+2, DA9,     dpcm ; $B4 - "Woo!"
+    DAC_Entry   $0A+2, DAA,     dpcm ; $B5 - "Go!"
+    DAC_Entry   $0D+2, DAB,     dpcm ; $B6 - Snare with voice going "Go!"
+    DAC_Entry   $06+2, DAC,     dpcm ; $B7 - Power Tom
+    DAC_Entry   $10+2, DADAE,   dpcm ; $B8 - Hi-Wood Block
+    DAC_Entry   $18+2, DADAE,   dpcm ; $B9 - Low-Wood Block
+    DAC_Entry   $09+2, DAFB0,   dpcm ; $BA - Hi-Hit Drum
+    DAC_Entry   $12+2, DAFB0,   dpcm ; $BB - Low-Hit Drum
+    DAC_Entry   $18+2, DB1,     dpcm ; $BC - Metal Crash Hit
+    DAC_Entry   $16+2, DB2B3,   dpcm ; $BD - Echoed Clap Hit
+    DAC_Entry   $20+2, DB2B3,   dpcm ; $BE - Lower Echoed Clap Hit
+    DAC_Entry   $0C+2, DB4C1C4, dpcm ; $BF - Hip-Hop style hit with a kick
+    DAC_Entry   $0C+2, DB5,     dpcm ; $C0 - Hip-Hop style hit with a Power Kick
+    DAC_Entry   $0C+2, DB6,     dpcm ; $C1 - Som Bass with a voice going "Hey!"
+    DAC_Entry   $18+2, DB7,     dpcm ; $C2 - Dance Style Kick
+    DAC_Entry   $0C+2, DB8B9,   dpcm ; $C3 - Hip-Hop hit with a kick
+    DAC_Entry   $0C+2, DB8B9,   dpcm ; $C4 - Hip-Hop hit with a kick
+    DAC_Entry   $18+2, DBA,     dpcm ; $C5 - Reverse Fading Wind Sound
+    DAC_Entry   $18+2, DBB,     dpcm ; $C6 - Scratch
+    DAC_Entry   $18+2, DBC,     dpcm ; $C7 - Loose Snare with noise
+    DAC_Entry   $0C+2, DBD,     dpcm ; $C8 - Power Kick
+    DAC_Entry   $0C+2, DBE,     dpcm ; $C9 - Crashing noise with voice going "Woo!"
+    DAC_Entry   $1C+2, DBF,     dpcm ; $CA - Quick hit
+    DAC_Entry   $0B+2, DC0,     dpcm ; $CB - Kick with a voice going "Hey!"
+    DAC_Entry   $0F+2, DB4C1C4, dpcm ; $CC - Power Kick with hit
+    DAC_Entry   $11+2, DB4C1C4, dpcm ; $CD - Low Power Kick with hit
+    DAC_Entry   $12+2, DB4C1C4, dpcm ; $CE - Lower Power Kick with hit
+    DAC_Entry   $0B+2, DB4C1C4, dpcm ; $CF - Lowest Power Kick with hit
+    DAC_Entry   $01+2, D6,      dpcm ; $D0 - Orchestra Hit - S3D Intro
+    DAC_Entry   $12+2, D7,      dpcm ; $D1 - Final Fight - Kick
 MegaPCM_End:
 
 ; ---------------------------------------------------------------
@@ -106,15 +153,54 @@ MegaPCM_End:
 	IncludeDAC	claps2, dpcm
 	IncludeDAC	scratchs2, dpcm
 	IncludeDAC	toms2, dpcm
-	IncludeDAC	kicks3, dpcm
-	IncludeDAC	snares3, dpcm
-	IncludeDAC	claps3, dpcm
-	IncludeDAC	toms3, dpcm
-	IncludeDAC	highermetalhits3, dpcm
-	IncludeDAC	highmetalhits3, dpcm
-	IncludeDAC	metalhits3, dpcm
-	IncludeDAC	muffledsnares3, dpcm
-	IncludeDAC	quickloosesnares3, dpcm
-	IncludeDAC	crashcymbals3, dpcm
+    IncludeDAC  D81, bin
+    IncludeDAC  D8285, bin
+    IncludeDAC  D86, bin
+    IncludeDAC  D87, bin
+    IncludeDAC  D88, bin
+    IncludeDAC  D89, bin
+    IncludeDAC  D8A8B, bin
+    IncludeDAC  D8C, bin
+    IncludeDAC  D8D8E, bin
+    IncludeDAC  D8F, bin
+    IncludeDAC  D9093, bin
+    IncludeDAC  D9497, bin
+    IncludeDAC  D989A, bin
+    IncludeDAC  D9B, bin
+    IncludeDAC  D9C, bin
+    IncludeDAC  D9D, bin
+    IncludeDAC  D9E, bin
+    IncludeDAC  D9F, bin
+    IncludeDAC  DA0, bin
+    IncludeDAC  DA1, bin
+    IncludeDAC  DA2, bin
+    IncludeDAC  DA3, bin
+    IncludeDAC  DA4, bin
+    IncludeDAC  DA5, bin
+    IncludeDAC  DA6, bin
+    IncludeDAC  DA7, bin
+    IncludeDAC  DA8, bin
+    IncludeDAC  DA9, bin
+    IncludeDAC  DAA, bin    
+    IncludeDAC  DAB, bin
+    IncludeDAC  DAC, bin    
+    IncludeDAC  DADAE, bin
+    IncludeDAC  DAFB0, bin
+    IncludeDAC  DB1, bin
+    IncludeDAC  DB2B3, bin  
+    IncludeDAC  DB4C1C4, bin    
+    IncludeDAC  DB5, bin    
+    IncludeDAC  DB6, bin    
+    IncludeDAC  DB7, bin    
+    IncludeDAC  DB8B9, bin      
+    IncludeDAC  DBA, bin    
+    IncludeDAC  DBB, bin    
+    IncludeDAC  DBC, bin
+    IncludeDAC  DBD, bin    
+    IncludeDAC  DBE, bin    
+    IncludeDAC  DBF, bin    
+    IncludeDAC  DC0, bin    
+    IncludeDAC  D6, bin    
+    IncludeDAC  D7, bin   
 	even
 
