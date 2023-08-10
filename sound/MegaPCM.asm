@@ -34,12 +34,32 @@ DAC_Entry macro Pitch,Offset,Flags
 	z80word	(\Offset\_End-1)|$8000	; 06h	- End Offset (in End bank)
 	endm
 	
-IncludeDAC macro Name,Extension
+IncludeDACS1 macro Name,Extension
 \Name:
 	if strcmp('\extension','wav')
-		incbin	"sound/dac/\Name\.\Extension\",$3A
+		incbin	"sound/dac/S1/\Name\.\Extension\",$3A
 	else
-		incbin	"sound/dac/\Name\.\Extension\"
+		incbin	"sound/dac/S1/\Name\.\Extension\"
+	endc
+\Name\_End:
+	endm
+
+IncludeDACS2 macro Name,Extension
+\Name:
+	if strcmp('\extension','wav')
+		incbin	"sound/dac/S2/\Name\.\Extension\",$3A
+	else
+		incbin	"sound/dac/S2/\Name\.\Extension\"
+	endc
+\Name\_End:
+	endm
+
+IncludeDACS3 macro Name,Extension
+\Name:
+	if strcmp('\extension','wav')
+		incbin	"sound/dac/S3/\Name\.\Extension\",$3A
+	else
+		incbin	"sound/dac/S3/\Name\.\Extension\"
 	endc
 \Name\_End:
 	endm
@@ -57,8 +77,8 @@ MegaPCM:
 
 	DAC_Entry	$17, kick, dpcm			; $81	- Kick
 	DAC_Entry	$04, snare, dpcm		; $82	- Snare
-	DAC_Entry	$06+2, claps2, dpcm		; $83	- Clap
-	DAC_Entry	$08+2, scratchs2, dpcm		; $84	- Scratch
+	DAC_Entry	$06+2, clap, dpcm		; $83	- Clap
+	DAC_Entry	$08+2, scratch, dpcm		; $84	- Scratch
 	dc.l	0,0					; $85	- <Free>
 	dc.l	0,0					; $86	- <Free>
 	dc.l	0,0					; $87	- <Free>
@@ -147,60 +167,60 @@ MegaPCM_End:
 ; DAC Samples Files
 ; ---------------------------------------------------------------
 
-	IncludeDAC	kick, dpcm
-	IncludeDAC	snare, dpcm
-	IncludeDAC	timpani, dpcm
-	IncludeDAC	claps2, dpcm
-	IncludeDAC	scratchs2, dpcm
-	IncludeDAC	toms2, dpcm
-    IncludeDAC  D81, bin
-    IncludeDAC  D8285, bin
-    IncludeDAC  D86, bin
-    IncludeDAC  D87, bin
-    IncludeDAC  D88, bin
-    IncludeDAC  D89, bin
-    IncludeDAC  D8A8B, bin
-    IncludeDAC  D8C, bin
-    IncludeDAC  D8D8E, bin
-    IncludeDAC  D8F, bin
-    IncludeDAC  D9093, bin
-    IncludeDAC  D9497, bin
-    IncludeDAC  D989A, bin
-    IncludeDAC  D9B, bin
-    IncludeDAC  D9C, bin
-    IncludeDAC  D9D, bin
-    IncludeDAC  D9E, bin
-    IncludeDAC  D9F, bin
-    IncludeDAC  DA0, bin
-    IncludeDAC  DA1, bin
-    IncludeDAC  DA2, bin
-    IncludeDAC  DA3, bin
-    IncludeDAC  DA4, bin
-    IncludeDAC  DA5, bin
-    IncludeDAC  DA6, bin
-    IncludeDAC  DA7, bin
-    IncludeDAC  DA8, bin
-    IncludeDAC  DA9, bin
-    IncludeDAC  DAA, bin    
-    IncludeDAC  DAB, bin
-    IncludeDAC  DAC, bin    
-    IncludeDAC  DADAE, bin
-    IncludeDAC  DAFB0, bin
-    IncludeDAC  DB1, bin
-    IncludeDAC  DB2B3, bin  
-    IncludeDAC  DB4C1C4, bin    
-    IncludeDAC  DB5, bin    
-    IncludeDAC  DB6, bin    
-    IncludeDAC  DB7, bin    
-    IncludeDAC  DB8B9, bin      
-    IncludeDAC  DBA, bin    
-    IncludeDAC  DBB, bin    
-    IncludeDAC  DBC, bin
-    IncludeDAC  DBD, bin    
-    IncludeDAC  DBE, bin    
-    IncludeDAC  DBF, bin    
-    IncludeDAC  DC0, bin    
-    IncludeDAC  D6, bin    
-    IncludeDAC  D7, bin   
+	IncludeDACS1	kick, dpcm
+	IncludeDACS1	snare, dpcm
+	IncludeDACS1	timpani, dpcm
+	IncludeDACS2	clap, dpcm
+	IncludeDACS2	scratch, dpcm
+	IncludeDACS2	tom, dpcm
+    IncludeDACS3 D81, bin
+    IncludeDACS3 D8285, bin
+    IncludeDACS3 D86, bin
+    IncludeDACS3 D87, bin
+    IncludeDACS3 D88, bin
+    IncludeDACS3 D89, bin
+    IncludeDACS3 D8A8B, bin
+    IncludeDACS3 D8C, bin
+    IncludeDACS3 D8D8E, bin
+    IncludeDACS3 D8F, bin
+    IncludeDACS3 D9093, bin
+    IncludeDACS3 D9497, bin
+    IncludeDACS3 D989A, bin
+    IncludeDACS3 D9B, bin
+    IncludeDACS3 D9C, bin
+    IncludeDACS3 D9D, bin
+    IncludeDACS3 D9E, bin
+    IncludeDACS3 D9F, bin
+    IncludeDACS3 DA0, bin
+    IncludeDACS3 DA1, bin
+    IncludeDACS3 DA2, bin
+    IncludeDACS3 DA3, bin
+    IncludeDACS3 DA4, bin
+    IncludeDACS3 DA5, bin
+    IncludeDACS3 DA6, bin
+    IncludeDACS3 DA7, bin
+    IncludeDACS3 DA8, bin
+    IncludeDACS3 DA9, bin
+    IncludeDACS3 DAA, bin
+    IncludeDACS3 DAB, bin
+    IncludeDACS3 DAC, bin
+    IncludeDACS3 DADAE, bin
+    IncludeDACS3 DAFB0, bin
+    IncludeDACS3 DB1, bin
+    IncludeDACS3 DB2B3, bin
+    IncludeDACS3 DB4C1C4, bin
+    IncludeDACS3 DB5, bin
+    IncludeDACS3 DB6, bin
+    IncludeDACS3 DB7, bin
+    IncludeDACS3 DB8B9, bin
+    IncludeDACS3 DBA, bin
+    IncludeDACS3 DBB, bin
+    IncludeDACS3 DBC, bin
+    IncludeDACS3 DBD, bin
+    IncludeDACS3 DBE, bin
+    IncludeDACS3 DBF, bin
+    IncludeDACS3 DC0, bin
+    IncludeDACS3 D6, bin
+    IncludeDACS3 D7, bin
 	even
 
