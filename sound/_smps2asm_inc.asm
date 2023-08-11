@@ -281,9 +281,9 @@ fTone_06    =	sTone_1C    ; 06 -> 1C (close)
 fTone_07    =	sTone_03    ; 07 -> 03 (again, S3K one is longer)
 fTone_08    =	sTone_1D    ; 08 -> 1D (more or less close)
 fTone_09    =	sTone_08    ; 09 -> 08 (almost close)
-fTone_0A    =	sTone_03
-fTone_0B    =	sTone_1D
-fTone_0C    =	$00
+fTone_0A    =	sTone_26
+fTone_0B    =	sTone_03
+fTone_0C    =	sTone_1D
     else
 fTone_01    =	$01
 fTone_02    =	$02
@@ -295,9 +295,9 @@ fTone_07    =	$07
 fTone_08    =	$08
 fTone_09    =	$09
 	if SonicDriverVer=1
-fTone_0A    =	$07
-fTone_0B    =	$05
-fTone_0C    =	$00
+fTone_0A    =	$05
+fTone_0B    =	$07
+fTone_0C    =	$08
 	else
 fTone_0A    =	$0A
 fTone_0B    =	$0B
