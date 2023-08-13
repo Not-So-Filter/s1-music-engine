@@ -459,6 +459,7 @@ ptr_musA3:	dc.l MusicA3
 ptr_musA4:	dc.l MusicA4
 ptr_musA5:	dc.l MusicA5
 ptr_musA6:	dc.l MusicA6
+ptr_musA7:	dc.l MusicA7
 ptr_musend
 ; ---------------------------------------------------------------------------
 ; Priority of sound. New music or SFX must have a priority higher than or equal
@@ -2773,43 +2774,43 @@ cfNoteTimeoutS3K:
 ; ---------------------------------------------------------------------------
 ; Music data
 ; ---------------------------------------------------------------------------
-Music81:	include	"sound/music/Mus81 - GHZ.asm"
+Music81:	include	"sound/music/S1/Mus81 - GHZ.asm"
 		even
-Music82:	include	"sound/music/Mus82 - LZ.asm"
+Music82:	include	"sound/music/S1/Mus82 - LZ.asm"
 		even
-Music83:	include	"sound/music/Mus83 - MZ.asm"
+Music83:	include	"sound/music/S1/Mus83 - MZ.asm"
 		even
-Music84:	include	"sound/music/Mus84 - SLZ.asm"
+Music84:	include	"sound/music/S1/Mus84 - SLZ.asm"
 		even
-Music85:	include	"sound/music/Mus85 - SYZ.asm"
+Music85:	include	"sound/music/S1/Mus85 - SYZ.asm"
 		even
-Music86:	include	"sound/music/Mus86 - SBZ.asm"
+Music86:	include	"sound/music/S1/Mus86 - SBZ.asm"
 		even
-Music87:	include	"sound/music/Mus87 - Invincibility.asm"
+Music87:	include	"sound/music/S1/Mus87 - Invincibility.asm"
 		even
-Music88:	include	"sound/music/Mus88 - Extra Life.asm"
+Music88:	include	"sound/music/S1/Mus88 - Extra Life.asm"
 		even
-Music89:	include	"sound/music/Mus89 - Special Stage.asm"
+Music89:	include	"sound/music/S1/Mus89 - Special Stage.asm"
 		even
-Music8A:	include	"sound/music/Mus8A - Title Screen.asm"
+Music8A:	include	"sound/music/S1/Mus8A - Title Screen.asm"
 		even
-Music8B:	include	"sound/music/Mus8B - Ending.asm"
+Music8B:	include	"sound/music/S1/Mus8B - Ending.asm"
 		even
-Music8C:	include	"sound/music/Mus8C - Boss.asm"
+Music8C:	include	"sound/music/S1/Mus8C - Boss.asm"
 		even
-Music8D:	include	"sound/music/Mus8D - FZ.asm"
+Music8D:	include	"sound/music/S1/Mus8D - FZ.asm"
 		even
-Music8E:	include	"sound/music/Mus8E - Sonic Got Through.asm"
+Music8E:	include	"sound/music/S1/Mus8E - Sonic Got Through.asm"
 		even
-Music8F:	include	"sound/music/Mus8F - Game Over.asm"
+Music8F:	include	"sound/music/S1/Mus8F - Game Over.asm"
 		even
-Music90:	include	"sound/music/Mus90 - Continue Screen.asm"
+Music90:	include	"sound/music/S1/Mus90 - Continue Screen.asm"
 		even
-Music91:	include	"sound/music/Mus91 - Credits.asm"
+Music91:	include	"sound/music/S1/Mus91 - Credits.asm"
 		even
-Music92:	include	"sound/music/Mus92 - Drowning.asm"
+Music92:	include	"sound/music/S1/Mus92 - Drowning.asm"
 		even
-Music93:	include	"sound/music/Mus93 - Get Emerald.asm"
+Music93:	include	"sound/music/S1/Mus93 - Get Emerald.asm"
 		even
 Music94:	include	"sound/music/S2/82 - EHZ.asm"
 		even
@@ -2848,6 +2849,8 @@ MusicA4:	include	"sound/music/S3D/Menu.asm"
 MusicA5:	include	"sound/music/S3D/Boss1.asm"
 		even
 MusicA6:	include	"sound/music/S3D/Boss2.asm"
+		even
+MusicA7:	include	"sound/music/Custom/Mumbo's Mountain.asm"
 		even
 
 ; ---------------------------------------------------------------------------
