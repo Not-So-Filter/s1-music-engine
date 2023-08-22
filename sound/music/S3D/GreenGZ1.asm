@@ -11,7 +11,7 @@ Snd_GreenGZ1_Header:
 	smpsHeaderFM        Snd_GreenGZ1_FM4,	$00, $10
 	smpsHeaderFM        Snd_GreenGZ1_FM5,	$00, $10
 	smpsHeaderPSG       Snd_GreenGZ1_PSG1,	$F4-12, $06, $00, sTone_06
-	smpsHeaderPSG       Snd_GreenGZ1_PSG2,	$F4-12, $07, $00, sTone_04_S3D
+	smpsHeaderPSG       Snd_GreenGZ1_PSG2,	$F4-12, $07, $00, sTone_04
 	smpsHeaderPSG       Snd_GreenGZ1_PSG3,	$23-12, $00, $00, sTone_03
 
 ; FM1 Data

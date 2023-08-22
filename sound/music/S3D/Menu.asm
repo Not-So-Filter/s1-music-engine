@@ -11,7 +11,7 @@ Snd_Menu_Header:
 	smpsHeaderFM        Snd_Menu_FM4,	$00, $09
 	smpsHeaderFM        Snd_Menu_FM5,	$0C, $20
 	smpsHeaderPSG       Snd_Menu_PSG1,	$F4-12, $08, $00, sTone_06
-	smpsHeaderPSG       Snd_Menu_PSG2,	$00-12, $08, $00, sTone_04_S3D
+	smpsHeaderPSG       Snd_Menu_PSG2,	$00-12, $08, $00, sTone_04
 	smpsHeaderPSG       Snd_Menu_PSG3,	$23-12, $02, $00, sTone_03
 
 ; FM1 Data

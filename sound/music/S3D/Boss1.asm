@@ -61,7 +61,7 @@ Snd_Boss1_Loop14:
 	dc.b	nC4, $12, nF4, nFs4, $0C, nEb4, $48, nD4, $18, nRst, nC4, nC4
 	dc.b	$12, nG4, nFs4, $0C, nEb4, $48, nRst, $0C, nD4, $06, nEb4, nG4
 	dc.b	$60, nBb4, $10, nAb4, nG4, nF4, nEb4, nCs4, nC4, $30, nBb3, $12
-	dc.b	nAb3, nG3, $0C, smpsNoAttack, $2E, nRst, $0E, $0C, nAb3, nBb3, nC4, $30
+	dc.b	nAb3, nG3, $0C, smpsNoAttack, $2E, nRst, $0E, nG3, $0C, nAb3, nBb3, nC4, $30
 	dc.b	nBb3, $12, nAb3, nG3, $0C, smpsNoAttack, $60, nC3, $06, nRst, nA2, nRst
 	dc.b	nBb2, $0C, nB2, $06, nC3, nRst, nC3, nA2, nRst, nBb2, $0C, nB2
 	dc.b	nC3, $06, nRst, nA2, nRst, nBb2, $0C, nB2, $06, nC3, nRst, nC3
@@ -88,7 +88,7 @@ Snd_Boss1_Loop0B:
 	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $0C, $06, nA1, $0C, nBb1
 	dc.b	nB1
 	smpsLoop            $00, $03, Snd_Boss1_Loop0B
-	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, $06, nA1
+	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, nC2, $06, nA1
 	dc.b	$0C, nBb1, nB1
 	smpsLoop            $01, $02, Snd_Boss1_Loop0B
 
@@ -96,7 +96,7 @@ Snd_Boss1_Loop0C:
 	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $0C, $06, nA1, $0C, nBb1
 	dc.b	nB1
 	smpsLoop            $00, $03, Snd_Boss1_Loop0C
-	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, $06, nA1
+	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, nC2, $06, nA1
 	dc.b	$0C, nBb1, nB1
 	smpsLoop            $01, $02, Snd_Boss1_Loop0C
 
@@ -104,7 +104,7 @@ Snd_Boss1_Loop0D:
 	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $0C, $06, nA1, $0C, nBb1
 	dc.b	nB1
 	smpsLoop            $00, $03, Snd_Boss1_Loop0D
-	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, $06, nA1
+	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, nC2, $06, nA1
 	dc.b	$0C, nBb1, nB1
 	smpsLoop            $01, $02, Snd_Boss1_Loop0D
 
@@ -114,18 +114,18 @@ Snd_Boss1_Loop0E:
 	smpsLoop            $00, $02, Snd_Boss1_Loop0E
 
 Snd_Boss1_Loop0F:
-	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, $06, nA1
+	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, nC2, $06, nA1
 	dc.b	$0C, nBb1, nB1
 	smpsLoop            $00, $02, Snd_Boss1_Loop0F
 	smpsLoop            $01, $02, Snd_Boss1_Loop0E
 
 Snd_Boss1_Loop10:
-	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, $06, nA1
+	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, nC2, $06, nA1
 	dc.b	$0C, nBb1, nB1
 	smpsLoop            $00, $02, Snd_Boss1_Loop10
 
 Snd_Boss1_Loop11:
-	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, $06, nA1
+	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, nC2, $06, nA1
 	dc.b	$0C, nBb1, nB1
 	smpsLoop            $00, $04, Snd_Boss1_Loop11
 
@@ -133,7 +133,7 @@ Snd_Boss1_Loop12:
 	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $0C, $06, nA1, $0C, nBb1
 	dc.b	nB1
 	smpsLoop            $00, $03, Snd_Boss1_Loop12
-	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, $06, nA1
+	dc.b	nC2, $0C, nA1, nBb1, nB1, $06, nC2, $06, nRst, $06, nC2, $06, nA1
 	dc.b	$0C, nBb1, nB1
 	smpsLoop            $01, $02, Snd_Boss1_Loop12
 	smpsJump            Snd_Boss1_Loop0C
@@ -196,9 +196,6 @@ Snd_Boss1_FM5:
 	dc.b	nRst, $15
 	smpsAlterNote       $01
 	smpsJump            Snd_Boss1_Jump01
-
-; Unreachable
-	smpsStop
 
 ; PSG1 Data
 Snd_Boss1_PSG1:
@@ -320,58 +317,6 @@ Snd_Boss1_PSG3:
 Snd_Boss1_Jump03:
 	smpsCall            Snd_Boss1_Call00
 	smpsJump            Snd_Boss1_Jump03
-
-; Unreachable
-Snd_Boss1_CallUnk00:
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF, $06, (nMaxPSG2-$23)&$FF
-	smpsPSGvoice        sTone_12
-	dc.b	$0C
-	smpsLoop            $00, $10, Snd_Boss1_CallUnk00
-	smpsReturn
-
-; Unreachable
-Snd_Boss1_CallUnk01:
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF, $06, (nMaxPSG2-$23)&$FF
-	smpsPSGvoice        sTone_12
-	dc.b	(nMaxPSG2-$23)&$FF
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF
-	smpsLoop            $00, $10, Snd_Boss1_CallUnk01
-	smpsReturn
-
-; Unreachable
-Snd_Boss1_CallUnk02:
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF, $06, nRst, (nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF
-	smpsPSGvoice        sTone_12
-	dc.b	(nMaxPSG2-$23)&$FF, $0C
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF, $06, (nMaxPSG2-$23)&$FF
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF, $06, nRst, (nMaxPSG2-$23)&$FF, nRst
-	smpsPSGvoice        sTone_12
-	dc.b	(nMaxPSG2-$23)&$FF, $0C
-	smpsPSGvoice        sTone_0F
-	dc.b	$06, $06
-	smpsLoop            $00, $04, Snd_Boss1_CallUnk02
-	smpsReturn
-
-; Unreachable
-Snd_Boss1_CallUnk03:
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF, $06, (nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF
-	smpsPSGvoice        sTone_12
-	dc.b	(nMaxPSG2-$23)&$FF, $0C
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF, $06, (nMaxPSG2-$23)&$FF
-	smpsPSGvoice        sTone_12
-	dc.b	(nMaxPSG2-$23)&$FF, $06
-	smpsPSGvoice        sTone_0F
-	dc.b	(nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF, (nMaxPSG2-$23)&$FF
-	smpsLoop            $00, $07, Snd_Boss1_CallUnk03
-	smpsReturn
 
 Snd_Boss1_Call00:
 	smpsPSGvoice        sTone_0F
@@ -512,23 +457,4 @@ Snd_Boss1_Voices:
 	smpsVcDecayLevel    $03, $03, $05, $05
 	smpsVcReleaseRate   $0F, $0F, $0F, $0F
 	smpsVcTotalLevel    $00, $22, $26, $19
-
-; Unused voice
-;	Voice $05
-;	$16
-;	$7A, $74, $3C, $31, 	$1F, $1F, $1F, $1F, 	$0A, $08, $0C, $0A
-;	$07, $0A, $07, $05, 	$2F, $AF, $AF, $5F, 	$14, $85, $8A, $80
-	smpsVcAlgorithm     $06
-	smpsVcFeedback      $02
-	smpsVcUnusedBits    $00
-	smpsVcDetune        $03, $03, $07, $07
-	smpsVcCoarseFreq    $01, $0C, $04, $0A
-	smpsVcRateScale     $00, $00, $00, $00
-	smpsVcAttackRate    $1F, $1F, $1F, $1F
-	smpsVcAmpMod        $00, $00, $00, $00
-	smpsVcDecayRate1    $0A, $0C, $08, $0A
-	smpsVcDecayRate2    $05, $07, $0A, $07
-	smpsVcDecayLevel    $05, $0A, $0A, $02
-	smpsVcReleaseRate   $0F, $0F, $0F, $0F
-	smpsVcTotalLevel    $80, $8A, $85, $14
 

@@ -2834,23 +2834,23 @@ Music9D:	include	"sound/music/1103/08 Carnival Night 2.asm"
 		even
 Music9E:	include	"sound/music/S3/Miniboss (Sonic 3).asm"
 		even
-Music9F:	include	"sound/music/S3/Final Boss.asm"
+Music9F:	include	"sound/music/S3/Zone Boss.asm"
 		even
-MusicA0:	include	"sound/music/S3D/GreenGZ1.asm"
+MusicA0:	include	"sound/music/S3/Final Boss.asm"
 		even
-MusicA1:	include	"sound/music/S3D/GreenGZ2.asm"
+MusicA1:	include	"sound/music/S3D/GreenGZ1.asm"
 		even
-MusicA2:	include	"sound/music/S3D/DDZ1.asm"
+MusicA2:	include	"sound/music/S3D/GreenGZ2.asm"
 		even
-MusicA3:	include	"sound/music/S3D/DDZ2.asm"
+MusicA3:	include	"sound/music/S3D/DDZ1.asm"
 		even
-MusicA4:	include	"sound/music/S3D/Menu.asm"
+MusicA4:	include	"sound/music/S3D/DDZ2.asm"
 		even
-MusicA5:	include	"sound/music/S3D/Boss1.asm"
+MusicA5:	include	"sound/music/S3D/Menu.asm"
 		even
-MusicA6:	include	"sound/music/S3D/Boss2.asm"
+MusicA6:	include	"sound/music/S3D/Boss1.asm"
 		even
-MusicA7:	include	"sound/music/Custom/Mumbo's Mountain.asm"
+MusicA7:	include	"sound/music/S3D/Boss2.asm"
 		even
 
 ; ---------------------------------------------------------------------------

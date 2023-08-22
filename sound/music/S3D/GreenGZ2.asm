@@ -149,7 +149,7 @@ Snd_GreenGZ2_Loop06:
 	; performed by Snd_GreenGZ2_Call06, but this call isn't paired with a call to Snd_GreenGZ2_Call06,
 	; causing the volume of this channel to be lowered by 1 every time the song loops.
 	; See https://www.youtube.com/watch?v=ZmryHIcNUdQ
-	smpsCall            Snd_GreenGZ2_Call07
+	smpsCall            Snd_GreenGZ2_Call07b
 	smpsJump            Snd_GreenGZ2_FM2
 
 Snd_GreenGZ2_Call05:
@@ -221,8 +221,11 @@ Snd_GreenGZ2_Call06:
 	smpsReturn
 
 Snd_GreenGZ2_Call07:
-	smpsSetvoice        $04
 	smpsFMAlterVol      $01
+
+Snd_GreenGZ2_Call07b:
+	smpsSetvoice        $04
+;	smpsFMAlterVol      $01 ; Moved to above to prevent a volume leak
 	smpsAlterPitch      $0C
 	smpsModSet          $07, $01, $03, $05
 	dc.b	nRst, $0C, nG5, nE5, $06, nRst, nF5, nRst, nG5, nC6, $0C, $06
@@ -768,22 +771,6 @@ Snd_GreenGZ2_Call0B:
 	smpsLoop            $00, $04, Snd_GreenGZ2_Call0B
 	smpsReturn
 
-; Unreachable
-Snd_GreenGZ2_CallUnk:
-	smpsPSGvoice        sTone_0F
-	smpsPSGAlterVol     $01
-	dc.b	$06
-	smpsPSGAlterVol     $01
-	dc.b	$06
-	smpsPSGvoice        sTone_12
-	smpsPSGAlterVol     $FE
-	dc.b	$0C
-	smpsLoop            $00, $03, Snd_GreenGZ2_CallUnk
-	smpsPSGvoice        sTone_0F
-	dc.b	$0C
-	dc.b	$0C
-	smpsReturn
-
 Snd_GreenGZ2_Call0C:
 	smpsPSGvoice        sTone_0F
 	smpsPSGAlterVol     $01
@@ -823,7 +810,7 @@ Snd_GreenGZ2_Call0D:
 	dc.b	$18
 	smpsPSGvoice        sTone_0F
 	smpsPSGAlterVol     $FF
-	dc.b	$0C, nRst, $0C, $0C, nRst, $0C, $0C
+	dc.b	$0C, nRst, (nMaxPSG2-$23)&$FF, nRst, (nMaxPSG2-$23)&$FF, $0C
 	smpsReturn
 
 ; DAC Data
