@@ -69,7 +69,7 @@ IncludeDACS3 macro Name,Extension
 ; ---------------------------------------------------------------
 
 MegaPCM:
-	incbin	"sound/MegaPCM.z80"
+	incbin	"sound/MegaPCM.bin"
 
 ; ---------------------------------------------------------------
 ; DAC Samples Table
@@ -147,20 +147,21 @@ MegaPCM:
 	DAC_Entry	$0C+2, DB6,     dpcm ; $C1 - Som Bass with a voice going "Hey!"
 	DAC_Entry	$18+2, DB7,     dpcm ; $C2 - Dance Style Kick
 	DAC_Entry	$0C+2, DB8B9,   dpcm ; $C3 - Hip-Hop hit with a kick
-	DAC_Entry	$0C+2, DB8B9,   dpcm ; $C4 - Hip-Hop hit with a kick
-	DAC_Entry	$18+2, DBA,     dpcm ; $C5 - Reverse Fading Wind Sound
-	DAC_Entry	$18+2, DBB,     dpcm ; $C6 - Scratch
-	DAC_Entry	$18+2, DBC,     dpcm ; $C7 - Loose Snare with noise
-	DAC_Entry	$0C+2, DBD,     dpcm ; $C8 - Power Kick
-	DAC_Entry	$0C+2, DBE,     dpcm ; $C9 - Crashing noise with voice going "Woo!"
-	DAC_Entry	$1C+2, DBF,     dpcm ; $CA - Quick hit
-	DAC_Entry	$0B+2, DC0,     dpcm ; $CB - Kick with a voice going "Hey!"
-	DAC_Entry	$0F+2, DB4C1C4, dpcm ; $CC - Power Kick with hit
-	DAC_Entry	$11+2, DB4C1C4, dpcm ; $CD - Low Power Kick with hit
-	DAC_Entry	$12+2, DB4C1C4, dpcm ; $CE - Lower Power Kick with hit
-	DAC_Entry	$0B+2, DB4C1C4, dpcm ; $CF - Lowest Power Kick with hit
-	DAC_Entry	$01+2, D6,      dpcm ; $D0 - Orchestra Hit - S3D Intro
-	DAC_Entry	$12+2, D7,      dpcm ; $D1 - Final Fight - Kick
+	DAC_Entry	$18+2, DBA,     dpcm ; $C4 - Reverse Fading Wind Sound
+	DAC_Entry	$18+2, DBB,     dpcm ; $C5 - Scratch
+	DAC_Entry	$18+2, DBC,     dpcm ; $C6 - Loose Snare with noise
+	DAC_Entry	$0C+2, DBD,     dpcm ; $C7 - Power Kick
+	DAC_Entry	$0C+2, DBE,     dpcm ; $C8 - Crashing noise with voice going "Woo!"
+	DAC_Entry	$1C+2, DBF,     dpcm ; $C9 - Quick hit
+	DAC_Entry	$0B+2, DC0,     dpcm ; $CA - Kick with a voice going "Hey!"
+	DAC_Entry	$0F+2, DB4C1C4, dpcm ; $CB - Power Kick with hit
+	DAC_Entry	$11+2, DB4C1C4, dpcm ; $CC - Low Power Kick with hit
+	DAC_Entry	$12+2, DB4C1C4, dpcm ; $CD - Lower Power Kick with hit
+	DAC_Entry	$0B+2, DB4C1C4, dpcm ; $CE - Lowest Power Kick with hit
+	DAC_Entry	$01+2, D6,      dpcm ; $CF - Orchestra Hit - S3D Intro
+	DAC_Entry	$12+2, D7,      dpcm ; $D0 - Final Fight - Kick
+	DAC_Entry	$16+2, DB2B3_S3,   dpcm ; $D1 - Echoed Clap Hit
+	DAC_Entry	$20+2, DB2B3_S3,   dpcm ; $D2 - Lower Echoed Clap Hit
 MegaPCM_End:
 
 ; ---------------------------------------------------------------
@@ -222,5 +223,6 @@ MegaPCM_End:
 	IncludeDACS3 DC0, bin
 	IncludeDACS3 D6, bin
 	IncludeDACS3 D7, bin
+	IncludeDACS3 DB2B3_S3, bin
 	even
 

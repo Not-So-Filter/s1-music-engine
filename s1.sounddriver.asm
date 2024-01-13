@@ -500,8 +500,6 @@ SoundPriorities:
 ; sub_71B4C:
 UpdateMusic:
                 lea	(v_snddriver_ram).w,a6
-                stopZ80
-		waitZ80
 		clr.b	f_voice_selector(a6)
 		tst.b	f_pausemusic(a6)
 		bne.w	PauseMusic
@@ -548,12 +546,6 @@ UpdateMusic:
 
 .exit:
 		addq.b	#1,f_palupdatecount(a6)
-		lea	(ym2612_a0).l,a0
-.loopDAC:
-		tst.b	(a0)
-		bmi.s	.loopDAC	; Loop if so
-		move.b	#$2A,(a0)
-		startZ80
 .locret:
                 rts
 ; End of function UpdateMusic
@@ -606,7 +598,10 @@ DACUpdateTrack:
 		btst	#3,d0			; Is bit 3 set (samples between $88-$8F)?
 		bne.s	.timpani		; Various timpani
 	endc
+		stopZ80
+		waitZ80
                 move.b	d0,(z80_dac_sample).l
+		startZ80
 .locret:
 	if MegaPCM_Mode
 locret_71CAA:
@@ -771,7 +766,7 @@ FinishTrackUpdate:
 		move.b	TrackNoteTimeoutMaster(a5),TrackNoteTimeout(a5)	; Reset note fill timeout
 		clr.b	TrackVolEnvIndex(a5)		; Reset PSG volume envelope index (even on FM tracks...)
 		btst	#3,(a5)	; Is modulation on?
-		beq.s	FinishTrackUpdate.locret	; If not, return
+		beq.s	FinishTrackUpdate.locret				; If yes, skip
 		movea.l	TrackModulationPtr(a5),a0	; Modulation data pointer
 		move.b	(a0)+,TrackModulationWait(a5)	; Reset wait
 		move.b	(a0)+,TrackModulationSpeed(a5)	; Reset speed
@@ -808,7 +803,7 @@ NoteTimeoutUpdate:
 DoModulation:
 		btst	#1,(a5)				; Is note active?
 		bne.s	.return				; Return if not
-                btst	#3,(a5)	; Is modulation active?
+		btst	#3,(a5)	; Is modulation active?
 		beq.s	.return				; Return if not
 		tst.b	TrackModulationWait(a5)	; Has modulation wait expired?
 		beq.s	.waitdone			; If yes, branch
@@ -1912,7 +1907,7 @@ WriteFMIorIIMain:
 ; sub_72722:
 WriteFMIorII:
 		move.b	TrackVoiceControl(a5),d2 ; Get voice control bits
-                btst	#2,d2	; Is this bound for part I or II?
+                bclr	#2,d2	; Is this bound for part I or II?
 		bne.s	WriteFMIIPart			; Branch if for part II
 		add.b	d2,d0	; Add in voice control bits
 ; End of function WriteFMIorII
@@ -1923,18 +1918,27 @@ WriteFMIorII:
 ; sub_7272E:
 WriteFMI:
                 lea	(ym2612_a0).l,a0
+		stopZ80
+		waitZ80
 .loop:
 		tst.b	(a0)		; Is FM busy?
 		bmi.s	.loop	; Loop if so
 		move.b	d0,(a0)
 		move.b	d1,1(a0)
+		nop
+		nop
+		nop
+.loopDAC:
+		tst.b	(a0)
+		bmi.s	.loopDAC	; Loop if so
+		move.b	#$2A,(a0)
+		startZ80
                 rts
 ; End of function WriteFMI
 
 ; ===========================================================================
 ; loc_7275A:
 WriteFMIIPart:
-		bclr	#2,d2			; Clear chip toggle
 		add.b	d2,d0			; Add in to destination register
 
 ; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
@@ -1942,11 +1946,21 @@ WriteFMIIPart:
 ; sub_72764:
 WriteFMII:
                 lea	(ym2612_a0).l,a0
+		stopZ80
+		waitZ80
 .loop:
 		tst.b	(a0)		; Is FM busy?
 		bmi.s	.loop	; Loop if so
 		move.b	d0,2(a0)
 		move.b	d1,3(a0)
+		nop
+		nop
+		nop
+.loopDAC:
+		tst.b	(a0)
+		bmi.s	.loopDAC	; Loop if so
+		move.b	#$2A,(a0)
+		startZ80
 WriteFMII.locret:
 		rts
 ; End of function WriteFMII
@@ -2829,11 +2843,11 @@ Music9A:	include	"sound/music/S3/HCZ1.asm"
 		even
 Music9B:	include	"sound/music/S3/HCZ2.asm"
 		even
-Music9C:	include	"sound/music/1103/07 Carnival Night 1.asm"
+Music9C:	include	"sound/music/S3/CNZ1.asm"
 		even
 Music9D:	include	"sound/music/1103/08 Carnival Night 2.asm"
 		even
-Music9E:	include	"sound/music/S3/Miniboss (Sonic 3).asm"
+Music9E:	include	"sound/music/S3/ICZ1.asm"
 		even
 Music9F:	include	"sound/music/S3/Zone Boss.asm"
 		even
